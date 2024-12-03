@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Calculadora IMC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="form"><form>
+            <h1>Calculadora IMC</h1><br>
+            <label>Nome</label>
+            <h3><input type="text" placeholder="Digite seu nome" id="nome"></h3>
+            <label>Altura</label>
+            <h3><input type="number" placeholder="Digite sua altura" id="altura">cm</h3><br>
+            <label>Peso</label>
+            <h3><input type="number" placeholder="Digite seu peso" id="peso">kg</h3><br>
+            <input type="button" onClick="imc()" value="Calcular">  
+        </form>
+        </div>
+        <div id="resultado">
+            <h1></h1>
+        </div>
+    </div>
+        <p id="resultado1"></p>
+        <script type="text/javascript">
+                function imc() {
+                const nome = document.getElementById('nome').value
+                const altura = document.getElementById('altura').value/100;
+                const peso = document.getElementById('peso').value;    
+                const m = (peso/ (altura * altura)).toFixed(1);
+                    if (m < 16){
+                        var i = 'baixo peso gravissímo';
+                    } else if (m > 16 && m < 16.99) {
+                        var i = 'baixo peso grave';
+                    } else if (m > 17 && m < 18.49) {
+                        var i = 'baixo peso';
+                    } else if (m > 18.50 && m < 24.99) {
+                        var i = 'peso normal';
+                    } else if (m > 24 && m < 29.99) {
+                        var i = 'sobrepeso';
+                    } else if (m > 30 && m < 34.99) {
+                        var i = 'obesidade de primeiro grau';
+                    } else if (m > 35 && m < 39.99) {
+                        var i = 'obesidade de segundo grau'; 
+                    } else if (m > 40) {
+                        var i = 'obesidade de terceiro grau';
+                    }
+                    document.getElementById("resultado").innerHTML =nome+ " você está com " + i;
+                }
+        </script>
+</body>
+</html>
